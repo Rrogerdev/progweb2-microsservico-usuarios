@@ -9,9 +9,12 @@ const server = restify.createServer({
 server.use(restify.plugins.queryParser()); 
 server.use(restify.plugins.bodyParser()); 
 
-server.get("/usuarios", UsuariosController.listar); 
+server.get("/usuarios",authenticateToken, UsuariosController.listar); 
 server.post("/usuarios", UsuariosController.criar); 
 server.get("/usuarios/perfil", authenticateToken, UsuariosController.perfil);
+server.post("/usuarios/login", UsuariosController.login);
+server.put("/usuarios/alterar",authenticateToken, UsuariosController.alterar);
+server.get("/usuarios/pedidos",authenticateToken, UsuariosController.getProdutoByUser);
 const PORT = 3002; 
 server.listen(PORT, () => { 
     console.log(`${server.name} rodando em ${server.url}`); 
