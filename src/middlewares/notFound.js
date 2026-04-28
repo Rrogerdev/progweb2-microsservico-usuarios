@@ -1,3 +1,3 @@
 module.exports = function notFound(req, res, next){
-    res.status(404).json({error: "Rota não encontrada."});
+    res.send(404, {error: "Rota não encontrada."});
 };

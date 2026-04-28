@@ -1,5 +1,5 @@
 module.exports = function errorHandler(err, req, res, next){
-    console.error("Erro", err);
+    // console.error("Erro", err);
 
     const status = err.statusCode || 500;
 
