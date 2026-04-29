@@ -174,7 +174,7 @@ static async getProdutoByUser(req, res) {
       return;
     }
 
-    const response = await fetch(`http://localhost:3004/pedidos/getPedidosByUsuario/${sub}`);
+    const response = await fetch(`http://localhost:3001/produtos/produtos/${sub}`);
 
     if (!response.ok) {
       res.send(404, { message: "Dados não encontrados no mock." });
